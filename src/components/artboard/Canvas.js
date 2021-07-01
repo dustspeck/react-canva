@@ -5,7 +5,7 @@ import { useArtboard } from "../../contexts/ArtboardContext";
 const Canvas = () => {
 	const [canvasDimensions, setCanvasDimensions] = useState({ width: 500, height: 500 });
 
-	const { selectedColor, setSelectedColor } = useArtboard();
+	const { selectedColor, setSelectedColor, elementsData, setElementsData } = useArtboard();
 
 	useEffect(() => {
 		setCanvasDimensions({ width: 0.7 * window.innerWidth, height: window.innerHeight - 5 });
@@ -13,7 +13,7 @@ const Canvas = () => {
 	return (
 		<Stage width={canvasDimensions.width} height={canvasDimensions.height}>
 			<Layer>
-				<Text text='Hello' fill={selectedColor} />
+				<Text text={JSON.stringify(elementsData)} fill={selectedColor} />
 			</Layer>
 		</Stage>
 	);

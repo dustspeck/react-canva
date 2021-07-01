@@ -15,14 +15,11 @@ const ColorPicker = () => {
 			Colors
 			<div style={{ display: "flex", flexDirection: "row", justifyContent: "center" }}>
 				{colors.map((color, i) => (
-					<div>
+					<div key={i.toString()}>
 						<div
-							key={i.toString()}
 							style={{
 								...styles.colorPickerIcon,
 								backgroundColor: color,
-								borderColor: "pink",
-								borderStyle: "dashed",
 								borderWidth: selectedColor === color ? 3 : 0,
 							}}
 							onClick={() => {
@@ -44,6 +41,8 @@ const styles = {
 		margin: "0.8rem",
 		cursor: "pointer",
 		borderRadius: 10,
+		borderColor: "pink",
+		borderStyle: "dashed",
 	},
 };
 
