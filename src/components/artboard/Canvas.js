@@ -29,18 +29,15 @@ const Canvas = () => {
 				{elementsData.map((element) => {
 					switch (element.shape) {
 						default:
-							break;
+							return;
 						case "rectangle":
 							return <RectangleShape element={element} />;
-							break;
 						case "circle":
 							return <CircleShape element={element} />;
-							break;
 						case "triangle":
 							return <TriangleShape element={element} />;
 						case "pentagon":
 							return <PentagonShape element={element} />;
-							break;
 					}
 				})}
 			</Layer>
