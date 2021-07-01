@@ -11,7 +11,7 @@ const ShapesBar = () => {
 	};
 
 	return (
-		<div style={{ textAlign: "center" }}>
+		<div style={{ textAlign: "center", marginTop: "3rem" }}>
 			Shapes
 			<div style={{ display: "flex", flexDirection: "row", justifyContent: "center" }}>
 				{shapes.map((shape, i) => (
@@ -21,7 +21,7 @@ const ShapesBar = () => {
 							onClick={() => {
 								handleSelectShape(shape);
 							}}>
-							{shape}
+							{shape.toUpperCase()}
 						</div>
 					</div>
 				))}
@@ -36,9 +36,6 @@ const styles = {
 		cursor: "pointer",
 		outlineStyle: "dashed",
 		outlineColor: "black",
-		padding: 2,
-		paddingLeft: 7,
-		paddingRight: 7,
 	},
 };
 

@@ -1,18 +1,18 @@
 import React from "react";
 import { useArtboard } from "../../../contexts/ArtboardContext";
 
-const colors = ["red", "green", "blue", "white", "black"];
+const colors = ["#ededed", "#B7FBFF", "#FFF6BE", "#FFA1AC", "#CDF0EA"];
 
-const ColorPicker = () => {
-	const { selectedColor, setSelectedColor } = useArtboard();
+const BackColorPicker = () => {
+	const { canvasColor, setCanvasColor } = useArtboard();
 
 	const handleColorPick = (color) => {
-		setSelectedColor(color);
+		setCanvasColor(color);
 	};
 
 	return (
 		<div style={{ textAlign: "center", marginTop: "3rem" }}>
-			Colors
+			Canvas Colors
 			<div style={{ display: "flex", flexDirection: "row", justifyContent: "center" }}>
 				{colors.map((color, i) => (
 					<div key={i.toString()}>
@@ -20,7 +20,7 @@ const ColorPicker = () => {
 							style={{
 								...styles.colorPickerIcon,
 								backgroundColor: color,
-								borderWidth: selectedColor === color ? 3 : 0,
+								borderWidth: canvasColor === color ? 3 : 0,
 							}}
 							onClick={() => {
 								handleColorPick(color);
@@ -46,4 +46,4 @@ const styles = {
 	},
 };
 
-export default ColorPicker;
+export default BackColorPicker;

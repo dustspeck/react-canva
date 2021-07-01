@@ -9,11 +9,9 @@ import PentagonShape from "../shapes/PentagonShape";
 const Canvas = () => {
 	const [canvasDimensions, setCanvasDimensions] = useState({ width: 500, height: 500 });
 
-	const { selectedColor, selectedShape, elementsData, setElementsData } = useArtboard();
+	const { canvasColor, selectedColor, selectedShape, elementsData, setElementsData } = useArtboard();
 
 	const handleDraw = (e) => {
-		console.log(selectedShape);
-		console.log(e.evt.offsetX, e.evt.offsetY);
 		setElementsData([...elementsData, { shape: selectedShape, x: e.evt.offsetX, y: e.evt.offsetY, color: selectedColor }]);
 	};
 
@@ -24,8 +22,9 @@ const Canvas = () => {
 	return (
 		<Stage width={canvasDimensions.width} height={canvasDimensions.height}>
 			<Layer onClick={handleDraw}>
-				<Rect width={canvasDimensions.width} height={canvasDimensions.height} fill='#ededed' />
-				<Text text={JSON.stringify(elementsData)} fill={selectedColor} />
+				<Rect width={canvasDimensions.width} height={canvasDimensions.height} fill={canvasColor} />
+				<Text text={"Click anywhere to draw. Drag elements to move."} fontSize={15} />
+				<Text text={JSON.stringify(elementsData)} fill={selectedColor} y={canvasDimensions.height - 50} />
 				{elementsData.map((element) => {
 					switch (element.shape) {
 						default:
