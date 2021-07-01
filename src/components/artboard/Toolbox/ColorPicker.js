@@ -15,13 +15,22 @@ const ColorPicker = () => {
 			Colors
 			<div style={{ display: "flex", flexDirection: "row", justifyContent: "center" }}>
 				{colors.map((color, i) => (
-					<div
-						key={i.toString()}
-						style={{ ...styles.colorPickerIcon, backgroundColor: color }}
-						onClick={() => {
-							handleColorPick(color);
-						}}
-					/>
+					<div>
+						<div
+							key={i.toString()}
+							style={{
+								...styles.colorPickerIcon,
+								backgroundColor: color,
+								borderColor: "pink",
+								borderStyle: "dashed",
+								borderWidth: selectedColor === color ? 3 : 0,
+							}}
+							onClick={() => {
+								handleColorPick(color);
+							}}
+						/>
+						{color}
+					</div>
 				))}
 			</div>
 		</div>
