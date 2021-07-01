@@ -3,7 +3,7 @@ import ColorPicker from "./ColorPicker";
 
 const Toolbox = () => {
 	return (
-		<div style={{ width: "30vw", height: "92vh", backgroundColor: "#888", padding: "4vh" }}>
+		<div style={{ width: "30vw", height: "92vh", backgroundColor: "#ccc", padding: "4vh" }}>
 			Toolbox
 			<ColorPicker />
 		</div>
