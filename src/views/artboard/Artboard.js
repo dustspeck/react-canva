@@ -1,6 +1,6 @@
 import React from "react";
 import Canvas from "../../components/artboard/Canvas";
-import Toolbox from "../../components/artboard/Toolbox";
+import Toolbox from "../../components/artboard/Toolbox/Toolbox";
 
 const Artboard = () => {
 	return (
