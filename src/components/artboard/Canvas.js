@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Stage, Layer, Text, Rect } from "react-konva";
 import { useArtboard } from "../../contexts/ArtboardContext";
-import Rectangle from "../shapes/Rectangle";
+import RectangleShape from "../shapes/RectangleShape";
+import CircleShape from "../shapes/CircleShape";
+import TriangleShape from "../shapes/TriangleShape";
+import PentagonShape from "../shapes/PentagonShape";
 
 const Canvas = () => {
 	const [canvasDimensions, setCanvasDimensions] = useState({ width: 500, height: 500 });
@@ -11,7 +14,7 @@ const Canvas = () => {
 	const handleDraw = (e) => {
 		console.log(selectedShape);
 		console.log(e.evt.offsetX, e.evt.offsetY);
-		setElementsData([...elementsData, { shape: selectedShape, x: e.evt.offsetX - 25, y: e.evt.offsetY - 25, color: selectedColor }]);
+		setElementsData([...elementsData, { shape: selectedShape, x: e.evt.offsetX, y: e.evt.offsetY, color: selectedColor }]);
 	};
 
 	useEffect(() => {
@@ -23,9 +26,23 @@ const Canvas = () => {
 			<Layer onClick={handleDraw}>
 				<Rect width={canvasDimensions.width} height={canvasDimensions.height} fill='#ededed' />
 				<Text text={JSON.stringify(elementsData)} fill={selectedColor} />
-				{elementsData.map((element) => (
-					<Rectangle element={element} />
-				))}
+				{elementsData.map((element) => {
+					switch (element.shape) {
+						default:
+							break;
+						case "rectangle":
+							return <RectangleShape element={element} />;
+							break;
+						case "circle":
+							return <CircleShape element={element} />;
+							break;
+						case "triangle":
+							return <TriangleShape element={element} />;
+						case "pentagon":
+							return <PentagonShape element={element} />;
+							break;
+					}
+				})}
 			</Layer>
 		</Stage>
 	);

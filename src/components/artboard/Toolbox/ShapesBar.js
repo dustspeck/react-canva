@@ -1,7 +1,7 @@
 import React from "react";
 import { useArtboard } from "../../../contexts/ArtboardContext";
 
-const shapes = ["circle", "rectangle", "triangle", "pentagon"];
+const shapes = ["circle", "triangle", "rectangle", "pentagon"];
 
 const ShapesBar = () => {
 	const { selectedShape, setSelectedShape } = useArtboard();
