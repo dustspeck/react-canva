@@ -2,6 +2,7 @@ import React from "react";
 import ColorPicker from "./ColorPicker";
 import ShapesBar from "./ShapesBar";
 import BackColorPicker from "./BackColorPicker";
+import ActionButtons from "./ActionButtons";
 
 const Toolbox = () => {
 	return (
@@ -14,8 +15,9 @@ const Toolbox = () => {
 			</div>
 			<div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
 				<ColorPicker />
-				<BackColorPicker />
 				<ShapesBar />
+				<BackColorPicker />
+				<ActionButtons />
 			</div>
 		</div>
 	);
